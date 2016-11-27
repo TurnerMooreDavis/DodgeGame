@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Diagnostics;
 namespace DodgeGame
 {
 	public class Game
@@ -8,27 +9,28 @@ namespace DodgeGame
 		{
 			player = new PlayerUnit(5, 10, "@");
 			enemy = new EnemyUnit(Console.WindowWidth -1, 20, "X");
+			stopwatch = new Stopwatch();
 
 		}
 		private Unit player;
 		private Unit enemy;
 
-
+		private Stopwatch stopwatch;
 
 		public void Run()
 		{
-			int desiredFPS = 30;
-			int delayBetweenFrames = 1000 / desiredFPS;
+			int desiredFPS = 10;
+			int deltaTimeMs = 1000 / desiredFPS;
 			while (true)
 			{
 
-				player.Update();
-				enemy.Update();
+				player.Update(deltaTimeMs);
+				enemy.Update(deltaTimeMs);
 
 				player.Draw();
 				enemy.Draw();
 
-				Thread.Sleep(delayBetweenFrames);
+				Thread.Sleep(deltaTimeMs);
 			}
 		}
 	}

@@ -6,7 +6,7 @@ namespace DodgeGame
 		public PlayerUnit(int x, int y, string unitCharacter) : base(x, y, unitCharacter)
 		{
 		}
-		override public void Update()
+		override public void Update(int deltaTimeMS)
 		{
 			if (Console.KeyAvailable == true)
 			{
@@ -27,6 +27,7 @@ namespace DodgeGame
 						break;
 				}
 			}
+			base.Update(deltaTimeMS);
 		}
 	}
 }

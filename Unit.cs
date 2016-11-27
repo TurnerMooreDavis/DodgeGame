@@ -40,15 +40,8 @@ namespace DodgeGame
 			
 		public string UnitCharacter;
 
-		virtual public void Update()
+		virtual public void Update(int deltaTimeMS)
 		{
-			if (X > 0)
-			{
-				X = X - 1;
-			}
-			else
-			{
-			}
 		}
 
 		public void Draw()
