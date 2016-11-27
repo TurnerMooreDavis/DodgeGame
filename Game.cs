@@ -8,7 +8,7 @@ namespace DodgeGame
 		public Game()
 		{
 			player = new PlayerUnit(5, 10, "@");
-			enemy = new EnemyUnit(Console.WindowWidth -1, 20, "X");
+			enemy = new EnemyUnit(Console.WindowWidth -1, 10, "X");
 			stopwatch = new Stopwatch();
 
 		}
@@ -19,19 +19,34 @@ namespace DodgeGame
 
 		public void Run()
 		{
-			int desiredFPS = 10;
-			int deltaTimeMs = 1000 / desiredFPS;
+			stopwatch.Start();
+			long timeAtPreviousFrame = stopwatch.ElapsedMilliseconds;
+
 			while (true)
 			{
-
+				int deltaTimeMs = (int)(stopwatch.ElapsedMilliseconds - timeAtPreviousFrame);
+				timeAtPreviousFrame = stopwatch.ElapsedMilliseconds;
 				player.Update(deltaTimeMs);
 				enemy.Update(deltaTimeMs);
+
+				if (player.IsCollidingWith(enemy))
+				{
+					GameOver();
+					return;
+				}
 
 				player.Draw();
 				enemy.Draw();
 
-				Thread.Sleep(deltaTimeMs);
+				Thread.Sleep(5);
 			}
 		}
+
+		private void GameOver()
+		{
+			Console.Clear();
+			Console.WriteLine("Game Over!");
+		}
+
 	}
 }

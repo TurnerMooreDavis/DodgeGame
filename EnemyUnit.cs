@@ -27,6 +27,7 @@ namespace DodgeGame
 			else
 			{
 			}
+			base.Update(deltaTimeMS);
 		}
 	}
 }

@@ -54,5 +54,14 @@ namespace DodgeGame
 			Console.SetCursorPosition(X, Y);
 			Console.Write(' ');
 		}
+		public bool IsCollidingWith(Unit otherUnit)
+		{
+			if (this.X == otherUnit.X && this.Y == otherUnit.Y)
+			{
+				return true;
+
+			}
+			return false;
+		}
 	}
 }
