@@ -21,6 +21,7 @@ namespace DodgeGame
 		}
 		public static Random Random;
 		public static int Score;
+		private string newGame;
 		private Unit player;
 		private Unit[] enemies;
 		private int numEnemies = 15;
@@ -64,7 +65,20 @@ namespace DodgeGame
 		private void GameOver()
 		{
 			Console.Clear();
-			Console.WriteLine("Game Over! Final Score is: " + Score);
+			Console.SetCursorPosition(10, 10);
+			Console.WriteLine("Game Over! Final Score is: " + Score + ". Continue?(y/n)");
+			newGame = Console.ReadLine();
+			if (newGame == "y")
+			{
+				NewGame();
+			}
+		}
+		private void NewGame()
+		{
+			Console.Clear();
+			Game game = new Game();
+			game.Run();
+			Console.SetCursorPosition(0, Console.WindowHeight - 1);
 		}
 
 	}
