@@ -14,16 +14,28 @@ namespace DodgeGame
 				switch (cki.Key)
 				{
 					case ConsoleKey.W:
-						Y = Y - 1;
+						if (Y > 0)
+						{
+							Y = Y - 1;
+						}
 						break;
 					case ConsoleKey.S:
-						Y = Y + 1;
+						if (Y < Console.WindowHeight -1)
+						{
+							Y = Y + 1;
+						}
 						break;
 					case ConsoleKey.A:
-						X = X - 1;
+						if (X > 0)
+						{
+							X = X - 1;
+						}
 						break;
 					case ConsoleKey.D:
-						X = X + 1;
+						if (X < Console.WindowWidth -1)
+						{
+							X = X + 1;
+						}
 						break;
 				}
 			}

@@ -44,7 +44,7 @@ namespace DodgeGame
 		{
 		}
 
-		public void Draw()
+		virtual public void Draw()
 		{
 			Console.SetCursorPosition(X, Y);
 			Console.Write(UnitCharacter);

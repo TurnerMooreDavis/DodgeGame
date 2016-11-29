@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{4E0ADD34-97BD-49A7-AED5-6179691F4827}|Default">
   <MonoDevelop.Ide.ItemProperties.DodgeGame PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Unit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game.cs">
     <Files>
       <File FileName="DodgeGameMain.cs" Line="1" Column="1" />
       <File FileName="EnemyUnit.cs" Line="1" Column="1" />
